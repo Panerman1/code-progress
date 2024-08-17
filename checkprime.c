@@ -1,6 +1,7 @@
 #include <stdio.h>
 int main()
 {
+    int prime(int);
     int n;
     printf("Enter the number of integers:\n");
     scanf("%d",&n);
