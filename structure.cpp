@@ -25,13 +25,17 @@ int main()
        
         for(int i=j;i<n;i++)
         {
-            int res = strcmp(arr[j-1].tname,arr[j].tname);
+            int k = 0;
             Cricket temp;
-            if(res>0)
+            while(arr[j-1].tname[k] != '\0' && arr[j].tname[k] != '\0')
             {
-                temp=arr[j-1];
-                arr[j-1]=arr[j];
-                arr[j]=temp;
+                if(arr[j-1].tname[k]>arr[j].tname[k])
+                {
+                    temp=arr[j-1];
+                    arr[j-1]=arr[j];
+                    arr[j]=temp;
+                }
+                k++;
             }
         }
     }
