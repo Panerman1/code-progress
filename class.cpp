@@ -1,37 +1,50 @@
 #include <iostream>
 using namespace std;
 
-class Area
+class Circle
 {
-    float radius,area;
+    private:
+        float rad;
     public:
-        
-        void Getradius();
-        void ComputeArea();
+        Circle(float radius);
+        ~Circle();
+        float Getradius();
+        float ComputeArea();
         void Display();
 };
 
-void Area::Getradius()
+Circle::Circle(float radius)
 {
-    cout <<"Enter the radius of the Circle: ";
-    cin >>radius;
+    this->rad = radius;
+    cout << "Circle object at " << this << " has been created!" << endl;
+}
+Circle::~Circle()
+{
+    cout << "Circle object at " << this << " has been destroyed!" << endl;
 }
 
-void Area::ComputeArea()
+float Circle::Getradius()
 {
-    area = 3.14 * radius * radius;
+    return (this->rad);
 }
 
-void Area::Display()
+float Circle::ComputeArea()
 {
-    cout <<"The Area of the Circle is: "<<area<<endl;
+   return (3.14 * this->rad * this->rad);
 }
 
 int main()
 {
-    Area a;
-    a.Getradius();
-    a.ComputeArea();
-    a.Display();
+    float radius,area;
+    Circle *a;
+
+    cout <<"Enter the radius of the Circle: ";
+    cin >>radius;
+
+    a = new Circle(radius);
+    cout <<"Radius is initialized to "<< a->Getradius() << endl;
+    area = a->ComputeArea();
+    delete a;
+    cout << "The Circle of the Circle is: " << area << endl;
     return 0;
 }
